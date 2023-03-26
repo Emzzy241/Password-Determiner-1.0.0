@@ -10,7 +10,8 @@ namespace PasswordDeterminer.Models
     // don't forget that a constructor is like a format on how to create instances(examples) of a specific class ---in our shapetracker app, the triangle costuctors purpose was to create a formt that will help in creating instances(examples) of a Triangle object(and that triangle objects needed 3 sides)
     // But before a constructor we need a class; as constructors are the formats for creating instances of a class and a C# constructor is actually created inside the class itself
 
-    public class UserAccount{
+    public class UserAccount
+    {
         // adding C# fields now to our class(don't forget we need 2 string fields in our object; one for username and one for password)
         // also with the naming convention: underscore and lower camel casing we know we are creating a private field that cannot be altered by external methods we call on our class in our UserInterface logic
         public string _username;
@@ -27,50 +28,70 @@ namespace PasswordDeterminer.Models
             _password = myUsersPassword;
 
 
-        // a brief overview on how a C# constructor is created:
-        // ---> To create a constructor, we simply define a method of the SAME NAME of the class
-        // ---> and we add our access modifier public which is an access modifier that ensures our method is available anywhere in our application
-        // ---> our constructor can take none or multiple parameters and here we gave it 2 string parameters(myUsersname and myUsersPassword)
-        // ---> and between the body of our constructor(the curly braces) we add in any code we want to execute 
-        // and the code we want to execute is to equate each of our parameters(myUsersname and myUsersPassword) to the fields a UserAccount object should have which are: Username and Password
+            // a brief overview on how a C# constructor is created:
+            // ---> To create a constructor, we simply define a method of the SAME NAME of the class
+            // ---> and we add our access modifier public which is an access modifier that ensures our method is available anywhere in our application
+            // ---> our constructor can take none or multiple parameters and here we gave it 2 string parameters(myUsersname and myUsersPassword)
+            // ---> and between the body of our constructor(the curly braces) we add in any code we want to execute 
+            // and the code we want to execute is to equate each of our parameters(myUsersname and myUsersPassword) to the fields a UserAccount object should have which are: Username and Password
         }
 
-         // Note that the class's fields are in Pascal case while the constructor's Parameters are lowerCamelCase.Thats because they are variables
+        // Note that the class's fields are in Pascal case while the constructor's Parameters are lowerCamelCase.Thats because they are variables
 
         // Now its time to make use of my getters and setters to get and set information and to ensure that an external method like the DeterminePassword method can have access to my private fields
 
         // First a Getter() methods for my DeterminePassword method
         // don't forget; a getter helps us get information 
 
-        public string GetUserName(){
+        public string GetUserName()
+        {
             return _username;
         }
 
-        public string GetUserPassword(){
+        public string GetUserPassword()
+        {
             return _password;
         }
 
         // for the setter method now
         // a setter helps us set informaton
-        public string SetUserName(string newUserName)
+        // One error I faced here for a week was the error CS1061; I was basically telling C# to make my Setter method return me a string(with public string) instead of making my Setter method return me void i.e nothing(with a public void)
+
+
+        public void SetUserName(string newUserName)
         {
-            _username = newUserName;   
+            _username = newUserName;
         }
-        public string SetUserPassword(string newUserPassword)
+        public void SetUserPassword(string newUserPassword)
         {
             _password = newUserPassword;
         }
-        
+
+        // With this my above setter I would be able to set my User's name and password inmy UI logic anytime I want to
+
 
         // Having written ny setter and getter method that ensures my method can access a private field(_username and _password) its time to write my 
         // DeterminePassword method
 
-        public string DeterminePassword()
-        {
-            // App to be continued later---------
-        }
+
+        // It really seems I don't need this business logic method, I can wrie a UI branch to solve this
+        
+        // public string DeterminePassword()
+        // {
+
+        //     // Now its time to write a branch that determines if user supplied in the right username and password or not
+
+
+        //     // first branch is if both username and password is correct
+        //     if(_username == newUserName && _password == newPassword)
+        //     {
+        //         return "Login was a success, welcome on board User";
+        //     }
+
+
+        // }
 
 
     }
-    
+
 }
