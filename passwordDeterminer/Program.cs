@@ -89,6 +89,8 @@ class Program
                     // a branch for if user inputs a username I have in my application but enters in a wrong password
                     else if (userLoginUserName == alreadyStoredUserNameInMyConstructor && userLoginPassword != alreadyStoredPasswordInMyConstructor)
                     {
+                        Console.WriteLine();
+                        Console.WriteLine();
                         Console.WriteLine($"The UserName you enterred; {userLoginUserName} exists in our app's database but you enterred a wrong password");
                         Console.WriteLine("You have two trials left, enter 'Y' to try again and 'N' to quit application");
 
@@ -117,6 +119,8 @@ class Program
                             }
                             else if (secondTrialUserLoginUserName == alreadyStoredUserNameInMyConstructor && secondTrialUserLoginPassword != alreadyStoredPasswordInMyConstructor)
                             {
+                                Console.WriteLine();
+                                Console.WriteLine();
                                 Console.WriteLine($"The UserName you enterred; {userLoginUserName} exists in our app's database but you enterred a wrong password");
                                 Console.WriteLine("This is your last trial, enter 'Y' to try again and 'N' to quit application");
 
@@ -125,7 +129,7 @@ class Program
 
                                 if (userLoginThirdTrial == "Y")
                                 {
-                                    Console.WriteLine("Please Note: you have only 2 trials left to enter the correct username and password");
+                                    Console.WriteLine("Please Note: This is your last trial to enter the correct username and password");
                                     Console.WriteLine();
                                     Console.WriteLine();
                                     Console.WriteLine("Enter you username");
@@ -139,19 +143,37 @@ class Program
 
                                     string lastTrialUserLoginPassword = Console.ReadLine();
 
-                                    if (secondTrialUserLoginUserName == alreadyStoredUserNameInMyConstructor && secondTrialUserLoginPassword == alreadyStoredPasswordInMyConstructor)
+                                    if (lastTrialUserLoginUserName == alreadyStoredUserNameInMyConstructor && lastTrialUserLoginPassword == alreadyStoredPasswordInMyConstructor)
                                     {
+                                        Console.WriteLine();
+                                        Console.WriteLine();
                                         Console.WriteLine($"You have successfully Logged in into our App, Welcome {newUserAccount.GetUserName()}");
                                     }
-                                    else if (secondTrialUserLoginUserName == alreadyStoredUserNameInMyConstructor && secondTrialUserLoginPassword != alreadyStoredPasswordInMyConstructor)
+                                    else if (lastTrialUserLoginUserName == alreadyStoredUserNameInMyConstructor && lastTrialUserLoginPassword != alreadyStoredPasswordInMyConstructor)
                                     {
+                                        Console.WriteLine();
+                                        Console.WriteLine();
                                         Console.WriteLine($"The UserName you enterred; {userLoginUserName} exists in our app's database but you enterred a wrong password");
                                         Console.WriteLine("That was your last trial, unfortunately we can't sign you in, Please signup for a new account");
                                         Main();
                                     }
+
+                                    // when user enters wrong username and password for third trial
+                                    else if (lastTrialUserLoginUserName != alreadyStoredUserNameInMyConstructor && lastTrialUserLoginPassword != alreadyStoredPasswordInMyConstructor)
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("Oops that was a wrong username and a wrong password, Please try sgning up that username and password");
+                                        Console.WriteLine();
+                                        Console.WriteLine();
+                                        Main();
+                                    }
                                     else
                                     {
+                                        Console.WriteLine();
+                                        Console.WriteLine();
                                         Console.WriteLine("Sorry we didn't get that, Please try again");
+                                        Console.WriteLine();
+                                        Console.WriteLine();
                                         Main();
                                     }
 
@@ -168,9 +190,24 @@ class Program
                                 }
 
                             }
+
+                            // when user enters wrong username and password for second trial
+                            else if (secondTrialUserLoginUserName != alreadyStoredUserNameInMyConstructor && secondTrialUserLoginPassword != alreadyStoredPasswordInMyConstructor)
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine("Oops that was a wrong username and a wrong password, Please try sgning up that username and password");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Main();
+                            }
+
                             else
                             {
+                                Console.WriteLine();
+                                Console.WriteLine();
                                 Console.WriteLine("Sorry we didn't get that, Please try again");
+                                Console.WriteLine();
+                                Console.WriteLine();
                                 Main();
                             }
                         }
@@ -182,7 +219,11 @@ class Program
                         // to ensure application doesn't break, I run a last else branch to start app again and this is just in case user enters in something my app doesn't understand
                         else
                         {
+                            Console.WriteLine();
+                            Console.WriteLine();
                             Console.WriteLine("Sorry we didn't get that, Please try again");
+                            Console.WriteLine();
+                            Console.WriteLine();
                             Main();
                         }
                     }
@@ -190,9 +231,13 @@ class Program
 
                     else if (userLoginUserName != alreadyStoredUserNameInMyConstructor && userLoginPassword != alreadyStoredPasswordInMyConstructor)
                     {
+                        Console.WriteLine();
+                        Console.WriteLine();
                         Console.WriteLine($" The UserName; {userLoginUserName} and password you enterred does not exists in our app's database");
                         Console.WriteLine();
                         Console.WriteLine("Please Try signing up and Logging in again");
+                        Console.WriteLine();
+                        Console.WriteLine();
                         Main();
                     }
 
@@ -207,7 +252,11 @@ class Program
                 }
                 else
                 {
+                    Console.WriteLine();
+                    Console.WriteLine();
                     Console.WriteLine("Sorry we didn't get that, Please try again");
+                    Console.WriteLine();
+                    Console.WriteLine();
                     Main();
                 }
 
@@ -220,7 +269,11 @@ class Program
             }
             else
             {
+                Console.WriteLine();
+                Console.WriteLine();
                 Console.WriteLine("Sorry we didn't get that, Please try again");
+                Console.WriteLine();
+                Console.WriteLine();
                 Main();
             }
 
@@ -232,8 +285,12 @@ class Program
         }
         else
         {
+            Console.WriteLine();
+            Console.WriteLine();
             // starting application from scratch again if user inputs in a wrong or an unexpected answer
             Console.WriteLine("Sorry we didn't get that, Please try again");
+            Console.WriteLine();
+            Console.WriteLine();
             Main();
         }
     }
